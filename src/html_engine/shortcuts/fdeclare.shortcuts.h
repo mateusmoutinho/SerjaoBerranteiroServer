@@ -1,4 +1,3 @@
-#include "../uniq.declarations_requirement.h"
 
 LuaCEmbedResponse *create_html(LuaCEmbed *args);
 LuaCEmbedResponse *create_body(LuaCEmbed *args);

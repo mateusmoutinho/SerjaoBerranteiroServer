@@ -1,4 +1,3 @@
-#include "../uniq.declarations_requirement.h"
 
 bool its_a_component(LuaCEmbedTable *element);
 
