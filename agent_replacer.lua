@@ -8,7 +8,9 @@ local replacers = {
    {item= "lw.types.NILL",target="LUA_CEMBED_NIL"},
    {item="lw.perform",target="LuaCembed_perform"},
    {item="lw.evaluate",target="LuaCEmbed_evaluate"},
+   {item="lw.tables.set_string_prop",target="LuaCEmbedTable_set_strcing_prop"}
     {item="lw.clear_errors",target="LuaCEmbed_clear_errors"},
+    {item="lw.response.send_table",target="LuaCEmbed_send_table"}
 }
 
 
