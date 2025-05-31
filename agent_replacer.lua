@@ -64,7 +64,7 @@ local replacers = {
     {item="lw.tables.set_double_prop", target="LuaCEmbedTable_set_double_prop"},
     {item="lw.tables.append_bool", target="LuaCEmbedTable_append_bool"},
     {item="lw.tables.append_evaluation", target="LuaCEmbedTable_append_evaluation"},
-    {item="lw.get_string_evaluation", target="LuaCEmbed_get_string_evaluation"},
+    {item="lw.get_string_evaluation", target="LuaCEmbed_get_evaluation_string"},
     {item="lw.tables.append_table", target="LuaCEmbedTable_append_table"},
 }
 
