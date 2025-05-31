@@ -37,17 +37,17 @@ local replacers = {
     {item="lw.tables.set_long_prop",target="LuaCEmbedTable_set_long_prop"},
     {item="lw.tables.get_type_prop",target="LuaCEmbedTable_get_type_prop"},
 
-    {item="lw.args.generate_arg_clojure_evalation"},
-    {item="lw.tables.get_string_prop"},
-    {item="lw.tables.set_bool_prop"},
-    {item="lw.tables.get_string_prop"},
-    {item="lw.response.send_str"},
-    {item="lw.tables.set_method"},
-    {item="lw.tables.get_key_by_index"},
-    {item="lw.tables.get_sub_table_by_index"},
-    {item="lw.tables.append_double"}
-    {item="lw.response.send_raw_string"},
-    {item="lw.args.get_raw_str"}
+    {item="lw.args.generate_arg_clojure_evalation",target="LuaCEmbed_generate_arg_clojure_evalation"},
+    {item="lw.tables.get_string_prop",target="LuaCEmbedTable_get_string_prop"},
+    {item="lw.tables.set_bool_prop", target="LuaCEmbedTable_set_bool_prop"},
+    {item="lw.tables.get_string_prop",target="LuaCEmbedTable_get_string_prop"},
+    {item="lw.response.send_str",target="LuaCEmbed_send_str"},
+    {item="lw.tables.set_method", target="LuaCEmbedTable_set_method"},
+    {item="lw.tables.get_key_by_index", target="LuaCEmbedTable_get_key_by_index"},
+    {item="lw.tables.get_sub_table_by_index", target="LuaCEmbedTable_get_sub_table_by_index"},
+    {item="lw.tables.append_double", target="LuaCEmbedTable_append_double"},
+    {item="lw.response.send_raw_string", target="LuaCEmbed_send_raw_string"},
+    {item="lw.args.get_raw_str", target="LuaCEmbed_get_raw_string_arg"},
 }
 
 
