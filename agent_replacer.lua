@@ -21,12 +21,19 @@ local replacers = {
     {item="lw.tables.get_size",target="LuaCEmbedTable_get_full_size"},
     {item="lw.tables.get_bool_prop",target="LuaCembedTable_get_bool_prop"},
     {item="lw.args.get_long",target="LuaCEmbed_get_long_arg"},
+    {item="lw.args.get_table",target="LuaCEmbed_get_table_arg"},
+    {item="lw.args.get_double",target="LuaCEmbed_get_double_arg"},
+
     {item="lw.tables.new_anonymous_table",target="LuaCembed_new_anonymous_table"},
     {item="lw.globals.new_table",target="LuaCembed_new_global_table"},
+    {item="lw.globals.get_table",target="LuaCEmbed_get_global_table"},
+    {item="lw.response.send_error",target="LuaCEmbed_send_error"},
     {item="lw.add_global_callback",target="LuaCEmbed_add_global_callback"},
     {item="lw.tables.get_sub_table_prop",target="LuaCEmbedTable_get_sub_table_by_key"},
     {item="lw.tables.set_string_prop",target="LuaCEmbedTable_set_string_prop"},
-    {item="lw.globals.get_string",target="LuaCEmbed_get_global_string"}
+    {item="lw.globals.get_string",target="LuaCEmbed_get_global_string"},
+    {item="lw.tables.get_type_by_index",target="LuaCEmbedTable_get_type_by_index"},
+    {item="lw.tables.has_key",target="LuaCEmbedTable_has_key"},
 }
 
 
