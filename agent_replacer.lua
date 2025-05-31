@@ -34,6 +34,8 @@ local replacers = {
     {item="lw.globals.get_string",target="LuaCEmbed_get_global_string"},
     {item="lw.tables.get_type_by_index",target="LuaCEmbedTable_get_type_by_index"},
     {item="lw.tables.has_key",target="LuaCEmbedTable_has_key"},
+    {item="lw.tables.set_long_prop",target="LuaCEmbedTable_set_long_prop"},
+    {item="lw.tables.get_type_prop",target="LuaCEmbedTable_get_type_prop"},
 }
 
 
