@@ -27,7 +27,7 @@ LuaCEmbedResponse *initserver(LuaCEmbed *arg) {
     serverTEMP.function_timeout = 100;
     get_params_for_server_config(&serverTEMP);
 
-    errorInit = cb.server.start(&serverTEMP);
+    errorInit = CwebServer_start(&serverTEMP);
     if (errorInit) {
       continue;
     }

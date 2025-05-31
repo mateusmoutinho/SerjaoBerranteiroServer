@@ -50,7 +50,7 @@ LuaCEmbedResponse *initdesktop(LuaCEmbed *arg) {
       get_params_for_server_config(&serverTEMP);
       serverTEMP.single_process = true;
       serverTEMP.allow_cors = false;
-      cb.server.start(&serverTEMP);
+      CwebServer_start(&serverTEMP);
       exit(0);
     }
 
