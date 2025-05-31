@@ -7,8 +7,8 @@ local replacers = {
    {item="lw.get_error_message",target="LuaCEmbed_get_error_message"},
    {item= "lw.types.NILL",target="LUA_CEMBED_NIL"},
    {item="lw.perform",target="LuaCembed_perform"},
-   {item="lw.evaluate",target="LuaCembed_evaluate"},
-    {item="lw.clear_errors",target="LuaCembed_clear_errors"},
+   {item="lw.evaluate",target="LuaCEmbed_evaluate"},
+    {item="lw.clear_errors",target="LuaCEmbed_clear_errors"},
 }
 
 
