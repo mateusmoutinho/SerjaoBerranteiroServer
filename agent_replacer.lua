@@ -10,7 +10,8 @@ local replacers = {
    {item="lw.evaluate",target="LuaCEmbed_evaluate"},
    {item="lw.tables.set_string_prop",target="LuaCEmbedTable_set_string_prop"},
     {item="lw.clear_errors",target="LuaCEmbed_clear_errors"},
-    {item="lw.response.send_table",target="LuaCEmbed_send_table"}
+    {item="lw.response.send_table",target="LuaCEmbed_send_table"},
+    {item="lw.add_callback",target="LuaCEmbed_add_callback"}
 }
 
 

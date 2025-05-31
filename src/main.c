@@ -74,8 +74,7 @@ CwebHttpResponse *main_sever(CwebHttpRequest *request) {
 
 int serjao_berranteiro_start_point(lua_State *state) {
   cb = newCwebNamespace();
-  lw = newLuaCEmbedNamespace();
-  l = lw.newLuaLib(state);
+  l = newLuaCEmbedLib(state);
 
   calbback_main();
 
@@ -83,5 +82,5 @@ int serjao_berranteiro_start_point(lua_State *state) {
 
   creat_table_for_config_server();
 
-  return lw.perform(l);
+  return LuaCembed_perform(l);
 }
