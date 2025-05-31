@@ -3,38 +3,38 @@
 
 LuaCEmbedResponse *initdesktop(LuaCEmbed *arg) {
   #ifdef __linux__
-  char *starter = lw.args.get_str(arg, 0);
+  char *starter = LuaCEmbed_get_str_arg(arg, 0);
 
-  if (lw.has_errors(arg)) {
-    return lw.response.send_error("Uninformed arguments");
+  if (LuaCEmbed_has_errors(arg)) {
+    return LuaCEmbed_send_error("Uninformed arguments");
   }
 
   const char *functionvalue = "function(value) server_callback = value end";
-  lw.args.generate_arg_clojure_evalation(arg, 1, functionvalue);
+  LuaCEmbed_generate_arg_clojure_evalation(arg, 1, functionvalue);
 
-  if (lw.has_errors(arg)) {
-    return lw.response.send_error("Uninformed arguments");
+  if (LuaCEmbed_has_errors(arg)) {
+    return LuaCEmbed_send_error("Uninformed arguments");
   }
 
   unsigned int windows_x = 800;
   unsigned int windows_y = 400;
-  bool no_parans_window = (lw.args.get_type(arg, 2) != lw.types.NUMBER &&
-                           lw.args.get_type(arg, 3) != lw.types.NUMBER);
+  bool no_parans_window = (LuaCEmbed_get_arg_type(arg, 2) != LUA_CEMBED_NUMBER &&
+                           LuaCEmbed_get_arg_type(arg, 3) != LUA_CEMBED_NUMBER);
 
-  if (lw.args.get_type(arg, 2) == lw.types.NUMBER) {
-    windows_x = lw.args.get_long(arg, 2);
+  if (LuaCEmbed_get_arg_type(arg, 2) == LUA_CEMBED_NUMBER) {
+    windows_x = LuaCEmbed_get_long_arg(arg, 2);
   }
-  if (lw.args.get_type(arg, 3) == lw.types.NUMBER) {
-    windows_y = lw.args.get_long(arg, 3);
+  if (LuaCEmbed_get_arg_type(arg, 3) == LUA_CEMBED_NUMBER) {
+    windows_y = LuaCEmbed_get_long_arg(arg, 3);
   }
-  if (lw.args.get_type(arg, 2) == lw.types.NUMBER &&
-      lw.args.get_type(arg, 3) != lw.types.NUMBER) {
+  if (LuaCEmbed_get_arg_type(arg, 2) == LUA_CEMBED_NUMBER &&
+      LuaCEmbed_get_arg_type(arg, 3) != LUA_CEMBED_NUMBER) {
     windows_y = windows_x;
   }
 
-  if (lw.has_errors(arg)) {
-    char *erro_msg = lw.get_error_message(arg);
-    return lw.response.send_error(erro_msg);
+  if (LuaCEmbed_has_errors(arg)) {
+    char *erro_msg = LuaCEmbed_get_error_message(arg);
+    return LuaCEmbed_send_error(erro_msg);
   }
 
   char config_window[70] = {'\0'};

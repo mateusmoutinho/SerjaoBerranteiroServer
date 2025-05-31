@@ -6,11 +6,11 @@ LuaCEmbedResponse *send_HTML(LuaCEmbed *args) {
   char *html_code = NULL;
 
   bool html_alocated = false;
-  int type = lw.args.get_type(args, 0);
-  if (type == lw.types.TABLE) {
-    LuaCEmbedTable *html_component = lw.args.get_table(args, 0);
+  int type = LuaCEmbed_get_arg_type(args, 0);
+  if (type == LUA_CEMBED_TABLE) {
+    LuaCEmbedTable *html_component = LuaCEmbed_get_arg_table(args, 0);
     if (!its_a_component(html_component)) {
-      return lw.response.send_error("invalid type");
+      return LuaCEmbed_send_error("invalid type");
     }
     TextOrError content = render_component_raw(html_component);
     if (content.error) {
@@ -21,28 +21,28 @@ LuaCEmbedResponse *send_HTML(LuaCEmbed *args) {
   }
 
   else {
-    html_code = lw.args.get_str(args, 0);
+    html_code = LuaCEmbed_get_str_arg(args, 0);
   }
 
   short status_code = 200;
-  if (lw.args.get_type(args, 1) == lw.types.NUMBER) {
-    status_code = lw.args.get_long(args, 1);
+  if (LuaCEmbed_get_arg_type(args, 1) == LUA_CEMBED_NUMBER) {
+    status_code = LuaCEmbed_get_long_arg(args, 1);
   }
 
-  if (lw.has_errors(args)) {
-    const char *msg_error = lw.get_error_message(args);
-    return lw.response.send_error(msg_error);
+  if (LuaCEmbed_has_errors(args)) {
+    const char *msg_error = LuaCEmbed_get_error_message(args);
+    return LuaCEmbed_send_error(msg_error);
   }
 
   CwebHttpResponse *response =
       cb.response.send_var_html((char *)html_code, status_code);
-  LuaCEmbedTable *table = lw.tables.new_anonymous_table(args);
+  LuaCEmbedTable *table = LuaCembed_new_anonymous_table(args);
   
-  lw.tables.set_long_prop(table, "response_pointer", (serjao_ptr_cast)response);
-  lw.tables.set_bool_prop(table, "its_a_reference", false);
-  lw.tables.set_method(table, "__gc", clear_memory_response);
+  LuaCEmbedTable_set_long_prop(table, "response_pointer", (serjao_ptr_cast)response);
+  LuaCEmbedTable_set_bool_prop(table, "its_a_reference", false);
+  LuaCEmbedTable_set_method(table, "__gc", clear_memory_response);
   if (html_alocated) {
     free(html_code);
   }
-  return lw.response.send_table(table);
+  return LuaCEmbed_send_table(table);
 }

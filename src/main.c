@@ -3,41 +3,41 @@
 CwebHttpResponse *main_sever(CwebHttpRequest *request) {
   cbrq = request;
   create_request(l);
-  lw.evaluate(l, "serverresponse,server_status_code  = "
+  LuaCEmbed_evaluate(l, "serverresponse,server_status_code  = "
                  "server_callback(request_main_server)");
 
-  if (lw.has_errors(l)) {
-    char *error = lw.get_error_message(l);
+  if (LuaCEmbed_has_errors(l)) {
+    char *error = LuaCEmbed_get_error_message(l);
     printf("%s\n", error);
-    lw.clear_errors(l);
+    LuaCEmbed_clear_errors(l);
     return cb.response.send_text("Interno server error", 500);
   }
 
   int status_code = 200;
   
-  int status_type = lw.globals.get_type(l, "server_status_code");
+  int status_type = LuaCEmbed_get_global_type(l, "server_status_code");
 
-  if (status_type != lw.types.NILL) {
-    status_code = lw.globals.get_long(l, "server_status_code");
+  if (status_type != LUA_CEMBED_NIL) {
+    status_code = LuaCEmbed_get_global_long(l, "server_status_code");
   }
 
-  if (lw.has_errors(l)) {
-    char *error = lw.get_error_message(l);
+  if (LuaCEmbed_has_errors(l)) {
+    char *error = LuaCEmbed_get_error_message(l);
     printf("%s\n", error);
-    lw.clear_errors(l);
+    LuaCEmbed_clear_errors(l);
 
     return cb.response.send_text("Interno server error", 500);
   }
 
-  int response_type = lw.globals.get_type(l, "serverresponse");
+  int response_type = LuaCEmbed_get_global_type(l, "serverresponse");
 
-  if (response_type == lw.types.STRING) {
-    char *value = lw.globals.get_string(l, "serverresponse");
+  if (response_type == LUA_CEMBED_STRING) {
+    char *value = LuaCEmbed_get_global_string(l, "serverresponse");
     return cb.response.send_text(value, status_code);
   }
 
-  if (response_type == lw.types.TABLE) {
-    LuaCEmbedTable *table = lw.globals.get_table(l, "serverresponse");
+  if (response_type == LUA_CEMBED_TABLE) {
+    LuaCEmbedTable *table = LuaCembed_get_global_table(l, "serverresponse");
 
     if (its_a_component(table)) {
       TextOrError content = render_component_raw(table);
@@ -50,13 +50,13 @@ CwebHttpResponse *main_sever(CwebHttpRequest *request) {
                                                        status_code);
     }
 
-    if (lw.tables.get_type_prop(table, "response_pointer") == lw.types.NUMBER) {
-      lw.tables.set_bool_prop(table, "its_a_reference", true);
-      CwebHttpResponse *response_cb =  (CwebHttpResponse *)(serjao_ptr_cast)lw.tables.get_long_prop(table,"response_pointer");
-      if (lw.has_errors(l)) {
-        char *error = lw.get_error_message(l);
+    if (LuaCEmbedTable_get_type_prop(table, "response_pointer") == LUA_CEMBED_NUMBER) {
+      LuaCEmbedTable_set_bool_prop(table, "its_a_reference", true);
+      CwebHttpResponse *response_cb =  (CwebHttpResponse *)(serjao_ptr_cast)LuaCembedTable_get_long_prop(table,"response_pointer");
+      if (LuaCEmbed_has_errors(l)) {
+        char *error = LuaCEmbed_get_error_message(l);
         printf("%s\n", error);
-        lw.clear_errors(l);
+        LuaCEmbed_clear_errors(l);
 
         return cb.response.send_text("Interno server error", 500);
       }

@@ -2,23 +2,23 @@
 #include "../uniq.definitions_requirements.h"
 
 LuaCEmbedResponse *initserver(LuaCEmbed *arg) {
-  unsigned short initport = (unsigned short)lw.args.get_long(arg, 0);
-  bool its_a_number = (lw.types.NUMBER == lw.args.get_type(arg, 1));
+  unsigned short initport = (unsigned short)LuaCEmbed_get_long_arg(arg, 0);
+  bool its_a_number = (LUA_CEMBED_NUMBER == LuaCEmbed_get_arg_type(arg, 1));
 
   const unsigned short lastport =
-      its_a_number ? (unsigned short)lw.args.get_long(arg, 1) : initport;
+      its_a_number ? (unsigned short)LuaCEmbed_get_long_arg(arg, 1) : initport;
   unsigned short port = initport;
 
-  if (lw.has_errors(arg)) {
-    return lw.response.send_error("Uninformed arguments");
+  if (LuaCEmbed_has_errors(arg)) {
+    return LuaCEmbed_send_error("Uninformed arguments");
   }
 
   const char *functionvalue = "function(value) server_callback = value end";
-  lw.args.generate_arg_clojure_evalation(arg, its_a_number ? 2 : 1,
+  LuaCEmbed_generate_arg_clojure_evalation(arg, its_a_number ? 2 : 1,
                                          functionvalue);
 
-  if (lw.has_errors(arg)) {
-    return lw.response.send_error("Uninformed arguments");
+  if (LuaCEmbed_has_errors(arg)) {
+    return LuaCEmbed_send_error("Uninformed arguments");
   }
 
   bool errorInit = true;
@@ -36,7 +36,7 @@ LuaCEmbedResponse *initserver(LuaCEmbed *arg) {
     break;
   }
   if (errorInit) {
-    return lw.response.send_error("Não foi possivel usar das portas %hd a %hd.",
+    return LuaCEmbed_send_error("Não foi possivel usar das portas %hd a %hd.",
                                   initport, lastport);
   }
   return NULL;
