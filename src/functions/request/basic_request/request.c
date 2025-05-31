@@ -25,7 +25,7 @@ LuaCEmbedResponse *setHP_index(LuaCEmbed *args, CwebDict *hp,
     const char *value = hp->keys_vals[index]->value;
     const char *key = hp->keys_vals[index]->key;
 
-    LuaCEmbedTable *tableKeys_vals = LuaCembed_new_anonymous_table(l);
+    LuaCEmbedTable *tableKeys_vals = LuaCembed_new_anonymous_table(serjao_lua_state);
     LuaCEmbedTable_set_string_prop(tableKeys_vals, "key", key);
     LuaCEmbedTable_set_string_prop(tableKeys_vals, "value", value);
     return LuaCEmbed_send_table(tableKeys_vals);

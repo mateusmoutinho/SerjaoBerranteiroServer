@@ -1,7 +1,7 @@
 #ifndef SERJAO_GLOBAIS
 #define SERJAO_GLOBAIS
 
-LuaCEmbed *l;
+LuaCEmbed *serjao_lua_state;
 CwebHttpRequest *cbrq;
 LuaCEmbedTable *set_server;
 

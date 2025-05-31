@@ -24,7 +24,7 @@ void get_params_for_server_config(struct CwebServer *struct_server_TEMP) {
 }
 
 void creat_table_for_config_server() {
-  set_server = LuaCembed_new_global_table(l, "set_server");
+  set_server = LuaCembed_new_global_table(serjao_lua_state, "set_server");
   LuaCEmbedTable_set_bool_prop(set_server, "single_process", false);
   LuaCEmbedTable_set_bool_prop(set_server, "allow_cors", true);
   LuaCEmbedTable_set_bool_prop(set_server, "use_folder", true);

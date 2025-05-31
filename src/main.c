@@ -2,42 +2,42 @@
 
 CwebHttpResponse *main_sever(CwebHttpRequest *request) {
   cbrq = request;
-  create_request(l);
-  LuaCEmbed_evaluate(l, "serverresponse,server_status_code  = "
+  create_request(serjao_lua_state);
+  LuaCEmbed_evaluate(serjao_lua_state, "serverresponse,server_status_code  = "
                  "server_callback(request_main_server)");
 
-  if (LuaCEmbed_has_errors(l)) {
-    char *error = LuaCEmbed_get_error_message(l);
+  if (LuaCEmbed_has_errors(serjao_lua_state)) {
+    char *error = LuaCEmbed_get_error_message(serjao_lua_state);
     printf("%s\n", error);
-    LuaCEmbed_clear_errors(l);
+    LuaCEmbed_clear_errors(serjao_lua_state);
     return cweb_send_text("Interno server error", 500);
   }
 
   int status_code = 200;
   
-  int status_type = LuaCEmbed_get_global_type(l, "server_status_code");
+  int status_type = LuaCEmbed_get_global_type(serjao_lua_state, "server_status_code");
 
   if (status_type != LUA_CEMBED_NIL) {
-    status_code = LuaCEmbed_get_global_long(l, "server_status_code");
+    status_code = LuaCEmbed_get_global_long(serjao_lua_state, "server_status_code");
   }
 
-  if (LuaCEmbed_has_errors(l)) {
-    char *error = LuaCEmbed_get_error_message(l);
+  if (LuaCEmbed_has_errors(serjao_lua_state)) {
+    char *error = LuaCEmbed_get_error_message(serjao_lua_state);
     printf("%s\n", error);
-    LuaCEmbed_clear_errors(l);
+    LuaCEmbed_clear_errors(serjao_lua_state);
 
     return cweb_send_text("Interno server error", 500);
   }
 
-  int response_type = LuaCEmbed_get_global_type(l, "serverresponse");
+  int response_type = LuaCEmbed_get_global_type(serjao_lua_state, "serverresponse");
 
   if (response_type == LUA_CEMBED_STRING) {
-    char *value = LuaCEmbed_get_global_string(l, "serverresponse");
+    char *value = LuaCEmbed_get_global_string(serjao_lua_state, "serverresponse");
     return cweb_send_text(value, status_code);
   }
 
   if (response_type == LUA_CEMBED_TABLE) {
-    LuaCEmbedTable *table = LuaCembed_get_global_table(l, "serverresponse");
+    LuaCEmbedTable *table = LuaCembed_get_global_table(serjao_lua_state, "serverresponse");
 
     if (its_a_component(table)) {
       TextOrError content = render_component_raw(table);
@@ -53,10 +53,10 @@ CwebHttpResponse *main_sever(CwebHttpRequest *request) {
     if (LuaCEmbedTable_get_type_prop(table, "response_pointer") == LUA_CEMBED_NUMBER) {
       LuaCEmbedTable_set_bool_prop(table, "its_a_reference", true);
       CwebHttpResponse *response_cb =  (CwebHttpResponse *)(serjao_ptr_cast)LuaCembedTable_get_long_prop(table,"response_pointer");
-      if (LuaCEmbed_has_errors(l)) {
-        char *error = LuaCEmbed_get_error_message(l);
+      if (LuaCEmbed_has_errors(serjao_lua_state)) {
+        char *error = LuaCEmbed_get_error_message(serjao_lua_state);
         printf("%s\n", error);
-        LuaCEmbed_clear_errors(l);
+        LuaCEmbed_clear_errors(serjao_lua_state);
 
         return cweb_send_text("Interno server error", 500);
       }
@@ -73,7 +73,7 @@ CwebHttpResponse *main_sever(CwebHttpRequest *request) {
 }
 
 int serjao_berranteiro_start_point(lua_State *state) {
-  l = newLuaCEmbedLib(state);
+  serjao_lua_state = newLuaCEmbedLib(state);
 
   calbback_main();
 
@@ -81,5 +81,5 @@ int serjao_berranteiro_start_point(lua_State *state) {
 
   creat_table_for_config_server();
 
-  return LuaCembed_perform(l);
+  return LuaCembed_perform(serjao_lua_state);
 }
