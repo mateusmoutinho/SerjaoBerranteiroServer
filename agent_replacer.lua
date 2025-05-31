@@ -26,7 +26,7 @@ local replacers = {
 
     {item="lw.tables.new_anonymous_table",target="LuaCembed_new_anonymous_table"},
     {item="lw.globals.new_table",target="LuaCembed_new_global_table"},
-    {item="lw.globals.get_table",target="LuaCEmbed_get_global_table"},
+    {item="lw.globals.get_table",target="LuaCembed_get_global_table"},
     {item="lw.response.send_error",target="LuaCEmbed_send_error"},
     {item="lw.add_global_callback",target="LuaCEmbed_add_global_callback"},
     {item="lw.tables.get_sub_table_prop",target="LuaCEmbedTable_get_sub_table_by_key"},
