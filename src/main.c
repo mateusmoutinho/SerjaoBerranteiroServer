@@ -14,6 +14,7 @@ CwebHttpResponse *main_sever(CwebHttpRequest *request) {
   }
 
   int status_code = 200;
+  
   int status_type = lw.globals.get_type(l, "server_status_code");
 
   if (status_type != lw.types.NILL) {
