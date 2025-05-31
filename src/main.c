@@ -10,7 +10,7 @@ CwebHttpResponse *main_sever(CwebHttpRequest *request) {
     char *error = LuaCEmbed_get_error_message(l);
     printf("%s\n", error);
     LuaCEmbed_clear_errors(l);
-    return cb.response.send_text("Interno server error", 500);
+    return cweb_send_text("Interno server error", 500);
   }
 
   int status_code = 200;
@@ -26,14 +26,14 @@ CwebHttpResponse *main_sever(CwebHttpRequest *request) {
     printf("%s\n", error);
     LuaCEmbed_clear_errors(l);
 
-    return cb.response.send_text("Interno server error", 500);
+    return cweb_send_text("Interno server error", 500);
   }
 
   int response_type = LuaCEmbed_get_global_type(l, "serverresponse");
 
   if (response_type == LUA_CEMBED_STRING) {
     char *value = LuaCEmbed_get_global_string(l, "serverresponse");
-    return cb.response.send_text(value, status_code);
+    return cweb_send_text(value, status_code);
   }
 
   if (response_type == LUA_CEMBED_TABLE) {
@@ -44,9 +44,9 @@ CwebHttpResponse *main_sever(CwebHttpRequest *request) {
       if (content.error) {
         printf("error:%s\n", content.error->string_val);
         private_LuaCEmbedResponse_free(content.error);
-        return cb.response.send_text("Interno server error", 500);
+        return cweb_send_text("Interno server error", 500);
       }
-      return cb.response.send_var_html_cleaning_memory(content.text,
+      return cweb_send_var_html_cleaning_memory(content.text,
                                                        status_code);
     }
 
@@ -58,14 +58,14 @@ CwebHttpResponse *main_sever(CwebHttpRequest *request) {
         printf("%s\n", error);
         LuaCEmbed_clear_errors(l);
 
-        return cb.response.send_text("Interno server error", 500);
+        return cweb_send_text("Interno server error", 500);
       }
 
       return response_cb;
     }
     cJSON *parsed = lua_fluid_json_dump_table_to_cJSON(table);
     CwebHttpResponse *response =
-        cb.response.send_cJSON_cleaning_memory(parsed, status_code);
+        cweb_send_cJSON_cleaning_memory(parsed, status_code);
     return response;
   }
 
@@ -73,7 +73,6 @@ CwebHttpResponse *main_sever(CwebHttpRequest *request) {
 }
 
 int serjao_berranteiro_start_point(lua_State *state) {
-  cb = newCwebNamespace();
   l = newLuaCEmbedLib(state);
 
   calbback_main();
