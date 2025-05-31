@@ -8,6 +8,8 @@ local replacers = {
    {item= "lw.types.NILL",target="LUA_CEMBED_NIL"},
    {item="lw.types.TABLE",target="LUA_CEMBED_TABLE"},
    {item="lw.types.BOOL",target="LUA_CEMBED_BOOL"},
+   {item="lw.types.FUNCTION",target="LUA_CEMBED_FUNCTION"},
+    {item="lw.args.size",target="LuaCEmbed_get_args_size"},
     {item="lw.types.NUMBER",target="LUA_CEMBED_NUMBER"},
    {item="lw.perform",target="LuaCembed_perform"},
    {item="lw.evaluate",target="LuaCEmbed_evaluate"},
@@ -38,7 +40,7 @@ local replacers = {
     {item="lw.tables.get_type_prop",target="LuaCEmbedTable_get_type_prop"},
 
     {item="lw.args.generate_arg_clojure_evalation",target="LuaCEmbed_generate_arg_clojure_evalation"},
-    {item="lw.tables.get_string_prop",target="LuaCEmbedTable_get_string_prop"},
+    {item="lw.tables.get_string_prop",target="LuaCembedTable_get_string_prop"},
     {item="lw.tables.set_bool_prop", target="LuaCEmbedTable_set_bool_prop"},
     {item="lw.tables.get_string_prop",target="LuaCEmbedTable_get_string_prop"},
     {item="lw.response.send_str",target="LuaCEmbed_send_str"},
@@ -52,10 +54,11 @@ local replacers = {
     {item="lw.response.send_bool", target="LuaCEmbed_send_bool"},
     {item="lw.args.get_bool", target="LuaCEmbed_get_bool_arg"},
     {item="lw.tables.get_string_by_index", target="LuaCEmbedTable_get_string_by_index"},
-    {item="lw.tables.get_long_prop", target="LuaCEmbedTable_get_long_prop"},
-    {iten="lw.globals.get_raw_string", target="LuaCEmbed_get_global_raw_string"},
+    {item="lw.tables.get_long_prop", target="LuaCembedTable_get_long_prop"},
+    {item="lw.globals.get_raw_string", target="LuaCEmbed_get_global_raw_string"},
     {item="lw.tables.append_string",target="LuaCEmbedTable_append_string"},
     {item="lw.tables.set_sub_table_prop", target="LuaCEmbedTable_set_sub_table_prop"}
+    {item="lw.tables.get_bool_by_index", target="LuaCEmbedTable_get_bool_by_index"},
 }
 
 
