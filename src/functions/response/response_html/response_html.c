@@ -35,7 +35,7 @@ LuaCEmbedResponse *send_HTML(LuaCEmbed *args) {
   }
 
   CwebHttpResponse *response =
-      cb.response.send_var_html((char *)html_code, status_code);
+      cweb_send_var_html((char *)html_code, status_code);
   LuaCEmbedTable *table = LuaCembed_new_anonymous_table(args);
   
   LuaCEmbedTable_set_long_prop(table, "response_pointer", (serjao_ptr_cast)response);

@@ -132,7 +132,7 @@ LuaCEmbedResponse *send_json(LuaCEmbed *args) {
     return LuaCEmbed_send_error(msg_error);
   }
 
-  CwebHttpResponse *response = cb.response.send_cJSON(result, status_code);
+  CwebHttpResponse *response = cweb_send_cJSON(result, status_code);
 
   cJSON_Delete(result);
 
@@ -157,7 +157,7 @@ LuaCEmbedResponse *send_json_string(LuaCEmbed *args) {
   }
 
   CwebHttpResponse *response =
-      cb.response.send_json_string((char *)json_string, status_code);
+      cweb_send_json_string((char *)json_string, status_code);
 
   LuaCEmbedTable *table = LuaCembed_new_anonymous_table(args);
   LuaCEmbedTable_set_long_prop(table, "response_pointer", (serjao_ptr_cast)response);

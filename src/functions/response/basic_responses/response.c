@@ -20,7 +20,7 @@ LuaCEmbedResponse *send_raw(LuaCEmbed *args) {
   if (firsr_type == LUA_CEMBED_STRING) {
     lua_Integer  size;
     char *value = LuaCEmbed_get_raw_str_arg(args, &size, 0);
-    response = cb.response.send_any(content_type, size, (unsigned char *)value,
+    response = cweb_send_any(content_type, size, (unsigned char *)value,
                                     status_code);
   } else if (firsr_type == LUA_TUSERDATA) {
     LuaCEmbed_generate_arg_clojure_evalation(
@@ -35,7 +35,7 @@ LuaCEmbedResponse *send_raw(LuaCEmbed *args) {
       char *erro_msg = LuaCEmbed_get_error_message(args);
       return LuaCEmbed_send_error(erro_msg);
     }
-    response = cb.response.send_any(content_type, size, (unsigned char *)value,
+    response = cweb_send_any(content_type, size, (unsigned char *)value,
                                     status_code);
   }
 
@@ -73,7 +73,7 @@ LuaCEmbedResponse *send_file(LuaCEmbed *args) {
   }
 
   CwebHttpResponse *response =
-      cb.response.send_file(rout_file, content_type, status_code);
+      cweb_send_file(rout_file, content_type, status_code);
 
   LuaCEmbedTable *table = LuaCembed_new_anonymous_table(args);
   LuaCEmbedTable_set_long_prop(table, "response_pointer", (serjao_ptr_cast)response);
@@ -96,7 +96,7 @@ LuaCEmbedResponse *send_text(LuaCEmbed *args) {
     return LuaCEmbed_send_error(erro_msg);
   }
 
-  CwebHttpResponse *response = cb.response.send_text(text, status_code);
+  CwebHttpResponse *response = cweb_send_text(text, status_code);
 
   LuaCEmbedTable *table = LuaCembed_new_anonymous_table(args);
   LuaCEmbedTable_set_long_prop(table, "response_pointer", (serjao_ptr_cast)response);
@@ -113,7 +113,7 @@ LuaCEmbedResponse *clear_memory_response(LuaCEmbedTable *self,
   if (!its_a_refe) {
     CwebHttpResponse *response =
         (CwebHttpResponse *)(serjao_ptr_cast)LuaCembedTable_get_long_prop(self, "response_pointer");
-    cb.response.free(response);
+    CwebHttpResponse_free(response);
   }
 
   return NULL;
