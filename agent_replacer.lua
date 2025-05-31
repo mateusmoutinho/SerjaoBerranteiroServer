@@ -50,6 +50,10 @@ local replacers = {
     {item="lw.args.get_raw_str", target="LuaCEmbed_get_raw_str_arg"},
     {item="lw.tables.get_double_by_index", target="LuaCEmbedTable_get_double_by_index"},
     {item="lw.response.send_bool", target="LuaCEmbed_send_bool"},
+    {item="lw.args.get_bool", target="LuaCEmbed_get_bool_arg"},
+    {item="lw.tables.get_string_by_index", target="LuaCEmbedTable_get_string_by_index"},
+    {item="lw.tables.get_long_prop", target="LuaCEmbedTable_get_long_prop"},
+    {"lw.globals.get_raw_string", target="LuaCEmbed_get_global_raw_string"},
 }
 
 
