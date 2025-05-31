@@ -1,7 +1,14 @@
 local files = dtw.list_files_recursively("src",true)
 
 local replacers = {
-   { item="lw.globals.get_type",target="LuaCEmbed_get_global_type"}
+   { item="lw.globals.get_type",target="LuaCEmbed_get_global_type"},
+   {item="lw.globals.get_long",target="LuaCEmbed_get_global_long"},
+   {item="lw.has_errors",target="LuaCEmbed_has_errors"},
+   {item="lw.get_error_message",target="LuaCEmbed_get_error_message"},
+   {item= "lw.types.NILL",target="LUA_CEMBED_NIL"},
+   {item="lw.perform",target="LuaCembed_perform"},
+   {item="lw.evaluate",target="LuaCembed_evaluate"},
+    {item="lw.clear_errors",target="LuaCembed_clear_errors"},
 }
 
 
