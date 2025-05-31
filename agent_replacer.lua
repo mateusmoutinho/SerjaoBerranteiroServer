@@ -7,7 +7,7 @@ local replacers = {
    {item="lw.get_error_message",target="LuaCEmbed_get_error_message"},
    {item= "lw.types.NILL",target="LUA_CEMBED_NIL"},
    {item="lw.types.TABLE",target="LUA_CEMBED_TABLE"},
-   {item="lw.types.BOOLEAN",target="LUA_CEMBED_BOOL"},
+   {item="lw.types.BOOL",target="LUA_CEMBED_BOOL"},
     {item="lw.types.NUMBER",target="LUA_CEMBED_NUMBER"},
    {item="lw.perform",target="LuaCembed_perform"},
    {item="lw.evaluate",target="LuaCEmbed_evaluate"},
@@ -21,7 +21,7 @@ local replacers = {
     {item="lw.tables.get_size",target="LuaCEmbedTable_get_full_size"},
     {item="lw.tables.get_bool_prop",target="LuaCembedTable_get_bool_prop"},
     {item="lw.args.get_long",target="LuaCEmbed_get_long_arg"},
-    {item="lw.args.get_table",target="LuaCEmbed_get_table_arg"},
+    {item="lw.args.get_table",target="LuaCEmbed_get_arg_table"},
     {item="lw.args.get_double",target="LuaCEmbed_get_double_arg"},
 
     {item="lw.tables.new_anonymous_table",target="LuaCembed_new_anonymous_table"},
