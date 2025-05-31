@@ -2,7 +2,10 @@ local serjao = require("serjao_berranteiro/serjao_berranteiro")
 
 local function whatever_name()
 
-  return serjao.send_text("Hello Word", 200)
+  return {
+    name="mateus",
+    age=28
+  }
 
 end
 
