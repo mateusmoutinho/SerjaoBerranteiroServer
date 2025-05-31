@@ -11,7 +11,17 @@ local replacers = {
    {item="lw.tables.set_string_prop",target="LuaCEmbedTable_set_string_prop"},
     {item="lw.clear_errors",target="LuaCEmbed_clear_errors"},
     {item="lw.response.send_table",target="LuaCEmbed_send_table"},
-    {item="lw.add_callback",target="LuaCEmbed_add_callback"}
+    {item="lw.add_callback",target="LuaCEmbed_add_callback"},
+    {item="lw.types.STRING",target="LUA_CEMBED_STRING"},
+    {item="lw.args.get_type",target="LuaCEmbed_get_arg_type"},
+    {item="lw.args.get_str",target="LuaCEmbed_get_str_arg"},
+    {item="lw.tables.get_size",target="LuaCEmbedTable_get_full_size"},
+    {item="lw.tables.get_bool_prop",target="LuaCembedTable_get_bool_prop"},
+    {item="lw.args.get_long",target="LuaCEmbed_get_long_arg"},
+    {item="lw.tables.new_anonymous_table",target="LuaCembed_new_anonymous_table"},
+    {item="lw.globals.new_table",target="LuaCembed_new_global_table"},
+    {item="lw.add_global_callback",target="LuaCEmbed_add_global_callback"},
+    {item="lw.tables.get_sub_table_prop",target="LuaCEmbedTable_get_sub_table_by_key"}
 }
 
 
