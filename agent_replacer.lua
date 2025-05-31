@@ -53,7 +53,9 @@ local replacers = {
     {item="lw.args.get_bool", target="LuaCEmbed_get_bool_arg"},
     {item="lw.tables.get_string_by_index", target="LuaCEmbedTable_get_string_by_index"},
     {item="lw.tables.get_long_prop", target="LuaCEmbedTable_get_long_prop"},
-    {"lw.globals.get_raw_string", target="LuaCEmbed_get_global_raw_string"},
+    {iten="lw.globals.get_raw_string", target="LuaCEmbed_get_global_raw_string"},
+    {item="lw.tables.append_string",target="LuaCEmbedTable_append_string"},
+    {item="lw.tables.set_sub_table_prop", target="LuaCEmbedTable_set_sub_table_prop"},
 }
 
 
