@@ -9,7 +9,7 @@ local replacers = {
    {item="lw.types.TABLE",target="LUA_CEMBED_TABLE"},
    {item="lw.types.BOOL",target="LUA_CEMBED_BOOL"},
    {item="lw.types.FUNCTION",target="LUA_CEMBED_FUNCTION"},
-    {item="lw.args.size",target="LuaCEmbed_get_args_size"},
+    {item="lw.args.size",target="LuaCEmbed_get_total_args"},
     {item="lw.types.NUMBER",target="LUA_CEMBED_NUMBER"},
    {item="lw.perform",target="LuaCembed_perform"},
    {item="lw.evaluate",target="LuaCEmbed_evaluate"},
@@ -59,6 +59,12 @@ local replacers = {
     {item="lw.tables.append_string",target="LuaCEmbedTable_append_string"},
     {item="lw.tables.set_sub_table_prop", target="LuaCEmbedTable_set_sub_table_prop"},
     {item="lw.tables.get_bool_by_index", target="LuaCEmbedTable_get_bool_by_index"},
+    {item="lw.convert_arg_code",target="LuaCEmbed_convert_arg_code"},
+    {item="lw.response.send_double", target="LuaCEmbed_send_double"},
+    {item="lw.tables.set_double_prop", target="LuaCEmbedTable_set_double_prop"},
+    {item="lw.tables.append_bool", target="LuaCEmbedTable_append_bool"},
+    {item="lw.tables.append_evaluation", target="LuaCEmbedTable_append_evaluation"},
+    {item="lw.get_string_evaluation", target="LuaCEmbed_get_string_evaluation"},
 }
 
 
