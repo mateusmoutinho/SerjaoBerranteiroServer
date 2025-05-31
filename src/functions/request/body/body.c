@@ -16,7 +16,7 @@ LuaCEmbedTable *private_lua_fluid_parse_array(LuaCEmbed *args,
     } else if (cJSON_IsNull(current)) {
       // char *nil_code = LuaCEmbed_get_global_string(args,
       // "private_lua_json_fluid_null_code");
-      char *nil_code = LuaCembedTable_get_string_prop(set_server, "nullterminator");
+      char *nil_code = LuaCembedTable_get_string_prop(serjao_server_config, "nullterminator");
       LuaCEmbedTable_append_string(created, nil_code);
     } else if (cJSON_IsObject(current)) {
       LuaCEmbedTable *internal_created =
@@ -47,7 +47,7 @@ LuaCEmbedTable *Creat_table_from_json_object(LuaCEmbed *args,
     } else if (cJSON_IsNull(current)) {
       // char *nil_code = LuaCEmbed_get_global_string(args,
       // "private_lua_json_fluid_null_code");
-      char *nil_code = LuaCembedTable_get_string_prop(set_server, "nullterminator");
+      char *nil_code = LuaCembedTable_get_string_prop(serjao_server_config, "nullterminator");
       LuaCEmbedTable_set_string_prop(created, key, nil_code);
     } else if (cJSON_IsObject(current)) {
       LuaCEmbedTable *internal_created =
@@ -97,7 +97,7 @@ LuaCEmbedResponse *read_json_from_table(LuaCEmbedTable *self, LuaCEmbed *args) {
   else if (cJSON_IsNull(json)) {
     // char *nil_code = LuaCEmbed_get_global_string(args,
     // "private_lua_json_fluid_null_code");
-    char *nil_code = LuaCembedTable_get_string_prop(set_server, "nullterminator");
+    char *nil_code = LuaCembedTable_get_string_prop(serjao_server_config, "nullterminator");
     return LuaCEmbed_send_str(nil_code);
   } else if (cJSON_IsObject(json)) {
     LuaCEmbedTable *created = Creat_table_from_json_object(args, json);

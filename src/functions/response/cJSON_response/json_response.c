@@ -24,7 +24,7 @@ cJSON *lua_fluid_json_dump_to_cJSON_array(LuaCEmbedTable *table) {
 
     if (type == LUA_CEMBED_STRING) {
       char *value = LuaCEmbedTable_get_string_by_index(table, i);
-      char *nil_code = LuaCembedTable_get_string_prop(set_server, "nullterminator");
+      char *nil_code = LuaCembedTable_get_string_prop(serjao_server_config, "nullterminator");
 
       if (strcmp(nil_code, value) == 0) {
         cJSON_AddItemToArray(created_array, cJSON_CreateNull());
@@ -61,7 +61,7 @@ cJSON *lua_fluid_json_dump_to_cJSON_object(LuaCEmbedTable *table) {
     }
     if (type == LUA_CEMBED_STRING) {
       char *value = LuaCEmbedTable_get_string_by_index(table, i);
-      char *nil_code = LuaCembedTable_get_string_prop(set_server, "nullterminator");
+      char *nil_code = LuaCembedTable_get_string_prop(serjao_server_config, "nullterminator");
       if (strcmp(nil_code, value) == 0) {
         cJSON_AddNullToObject(created_object, key);
       } else {

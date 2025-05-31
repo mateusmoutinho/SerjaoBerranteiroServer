@@ -3,6 +3,6 @@
 
 LuaCEmbed *serjao_lua_state;
 CwebHttpRequest *serjao_cweb_global_requiest;
-LuaCEmbedTable *set_server;
+LuaCEmbedTable *serjao_server_config;
 
 #endif
