@@ -36,6 +36,18 @@ local replacers = {
     {item="lw.tables.has_key",target="LuaCEmbedTable_has_key"},
     {item="lw.tables.set_long_prop",target="LuaCEmbedTable_set_long_prop"},
     {item="lw.tables.get_type_prop",target="LuaCEmbedTable_get_type_prop"},
+
+    {item="lw.args.generate_arg_clojure_evalation"},
+    {item="lw.tables.get_string_prop"},
+    {item="lw.tables.set_bool_prop"},
+    {item="lw.tables.get_string_prop"},
+    {item="lw.response.send_str"},
+    {item="lw.tables.set_method"},
+    {item="lw.tables.get_key_by_index"},
+    {item="lw.tables.get_sub_table_by_index"},
+    {item="lw.tables.append_double"}
+    {item="lw.response.send_raw_string"},
+    {item="lw.args.get_raw_str"}
 }
 
 
