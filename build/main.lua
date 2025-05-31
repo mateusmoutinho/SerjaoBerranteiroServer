@@ -23,7 +23,7 @@ function main()
         MAX_CONNTENT,
         MAX_RECURSION
     )
-    darwin.dtw.write_file("release/luaDoTheWorld_no_dep.c", no_dep_amalgamation)
+    darwin.dtw.write_file("release/serjao_no_dep.c", no_dep_amalgamation)
 
     darwin.dtw.copy_any_overwriting("extra/starter.lua","release/luaDoTheWorld/luaDoTheWorld.lua")
     os.execute("gcc src/one.c -Wall -shared  -fpic -o release/luaDoTheWorld/luaDoTheWorld.so")
