@@ -33,7 +33,7 @@ local replacers = {
     {item="lw.tables.set_string_prop",target="LuaCEmbedTable_set_string_prop"},
     {item="lw.globals.get_string",target="LuaCEmbed_get_global_string"},
     {item="lw.tables.get_type_by_index",target="LuaCEmbedTable_get_type_by_index"},
-    {item="lw.tables.has_key",target="LuaCEmbedTable_has_key"},
+    {item="lw.tables.has_key",target="LuaCembedTable_has_key_at_index"},
     {item="lw.tables.set_long_prop",target="LuaCEmbedTable_set_long_prop"},
     {item="lw.tables.get_type_prop",target="LuaCEmbedTable_get_type_prop"},
 
@@ -43,11 +43,13 @@ local replacers = {
     {item="lw.tables.get_string_prop",target="LuaCEmbedTable_get_string_prop"},
     {item="lw.response.send_str",target="LuaCEmbed_send_str"},
     {item="lw.tables.set_method", target="LuaCEmbedTable_set_method"},
-    {item="lw.tables.get_key_by_index", target="LuaCEmbedTable_get_key_by_index"},
+    {item="lw.tables.get_key_by_index", target="LuaCembedTable_get_key_by_index"},
     {item="lw.tables.get_sub_table_by_index", target="LuaCEmbedTable_get_sub_table_by_index"},
     {item="lw.tables.append_double", target="LuaCEmbedTable_append_double"},
     {item="lw.response.send_raw_string", target="LuaCEmbed_send_raw_string"},
-    {item="lw.args.get_raw_str", target="LuaCEmbed_get_raw_string_arg"},
+    {item="lw.args.get_raw_str", target="LuaCEmbed_get_raw_str_arg"},
+    {item="lw.tables.get_double_by_index", target="LuaCEmbedTable_get_double_by_index"},
+    {item="lw.response.send_bool", target="LuaCEmbed_send_bool"},
 }
 
 
