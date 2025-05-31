@@ -2,7 +2,7 @@
 #define SERJAO_GLOBAIS
 
 LuaCEmbed *serjao_lua_state;
-CwebHttpRequest *cbrq;
+CwebHttpRequest *serjao_cweb_global_requiest;
 LuaCEmbedTable *set_server;
 
 #endif

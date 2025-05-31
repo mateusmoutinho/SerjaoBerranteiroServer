@@ -1,7 +1,7 @@
 #include "definitions.c"
 
 CwebHttpResponse *main_sever(CwebHttpRequest *request) {
-  cbrq = request;
+  serjao_cweb_global_requiest = request;
   create_request(serjao_lua_state);
   LuaCEmbed_evaluate(serjao_lua_state, "serverresponse,server_status_code  = "
                  "server_callback(request_main_server)");

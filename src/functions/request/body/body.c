@@ -71,7 +71,7 @@ LuaCEmbedResponse *read_json_from_table(LuaCEmbedTable *self, LuaCEmbed *args) {
     return LuaCEmbed_send_error(error_message);
   }
 
-  cJSON *json = CWebHttpRequest_read_cJSON(cbrq, max_size);
+  cJSON *json = CWebHttpRequest_read_cJSON(serjao_cweb_global_requiest, max_size);
 
   if (!json) {
     return NULL;
@@ -117,11 +117,11 @@ LuaCEmbedResponse *read_raw_body(LuaCEmbedTable *self, LuaCEmbed *args) {
     return LuaCEmbed_send_error(error_message);
   }
 
-  unsigned char *content = CwebHttpRequest_read_content(cbrq, max_size);
+  unsigned char *content = CwebHttpRequest_read_content(serjao_cweb_global_requiest, max_size);
 
   if (content == NULL) {
     return NULL;
   }
 
-  return LuaCEmbed_send_raw_string((char *)content, cbrq->content_length);
+  return LuaCEmbed_send_raw_string((char *)content, serjao_cweb_global_requiest->content_length);
 }
