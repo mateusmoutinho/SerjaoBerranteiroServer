@@ -71,7 +71,7 @@ LuaCEmbedResponse *read_json_from_table(LuaCEmbedTable *self, LuaCEmbed *args) {
     return LuaCEmbed_send_error(error_message);
   }
 
-  cJSON *json = cb.request.read_cJSON(cbrq, max_size);
+  cJSON *json = CWebHttpRequest_read_cJSON(cbrq, max_size);
 
   if (!json) {
     return NULL;
@@ -117,7 +117,7 @@ LuaCEmbedResponse *read_raw_body(LuaCEmbedTable *self, LuaCEmbed *args) {
     return LuaCEmbed_send_error(error_message);
   }
 
-  unsigned char *content = cb.request.read_content(cbrq, max_size);
+  unsigned char *content = CwebHttpRequest_read_content(cbrq, max_size);
 
   if (content == NULL) {
     return NULL;

@@ -35,11 +35,11 @@ LuaCEmbedResponse *setHP_index(LuaCEmbed *args, CwebDict *hp,
 } // function
 
 LuaCEmbedResponse *setHeaders(LuaCEmbedTable *self, LuaCEmbed *args) {
-  return setHP_index(args, cbrq->headers, cb.request.get_header);
+  return setHP_index(args, cbrq->headers, CwebHttpRequest_get_header);
 }
 
 LuaCEmbedResponse *setParams(LuaCEmbedTable *self, LuaCEmbed *args) {
-  return setHP_index(args, cbrq->params, cb.request.get_param);
+  return setHP_index(args, cbrq->params, CwebHttpRequest_get_param);
 }
 
 void create_request(LuaCEmbed *args) {
