@@ -1,4 +1,4 @@
-local serjao = require("serjao_berranteiro/serjao_berranteiro")
+local serjao = require("release/serjao_berranteiro/serjao_berranteiro")
 
 local function whatever_name()
 
