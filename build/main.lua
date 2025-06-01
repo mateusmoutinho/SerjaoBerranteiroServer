@@ -7,11 +7,11 @@ function main()
 
     darwin.silverchain.generate({
         src = "src",
-        project_shortcut="luaDoTheWorld",
+        project_shortcut="serjao_berranteiro",
         tags = { "dependencie", "consts", "macros", "globals", "fdeclare", "fdefine" },
         implement_main = false
     })
-
+    if true then return end 
   local no_dep_amalgamation = darwin.camalgamator.generate_amalgamation_with_callback("src/one.c",
         function(import, path)
             if import == "src/imports/../dependencie.dependencies.h"  then
