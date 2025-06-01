@@ -20,10 +20,9 @@ Serjão Berranteiro Server is a powerful Lua framework for building both APIs an
 
 ### Method 1: Download from GitHub
 
-1. Go to the [SerjaoBerranteiroServer repository](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer)
-2. Download the latest zip file from [Releases](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases)
-3. Extract the file in your project directory
-4. Require the library in your code:
+1. Download the latest zip file from [Releases](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases)
+2. Extract the file in your project directory
+3. Require the library in your code:
 
 ```lua
 local serjao = require("path_to_serjao_berranteiro/serjao_berranteiro")
