@@ -1,6 +1,5 @@
-# Serjão Berranteiro Server Documentation
 
-![Logo by SerjaoBerranteiroServer](Markdown/imgs/logo_olhos_manchadov2.png)
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Release: v2.0](https://img.shields.io/badge/Release-v2.0-blue.svg)](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases)
@@ -8,9 +7,10 @@
 [![Platform: Linux/macOS/Windows](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey.svg)](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer)
 [![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer)
 
-## Languages
 
-[Português](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/blob/main/Markdown/language/Portugu%C3%AAsBR.md)
+# Serjão Berranteiro Server
+
+![Logo by SerjaoBerranteiroServer](/extra/logo.png)
 
 ## Overview
 
@@ -463,13 +463,6 @@ The framework provides built-in functions for all standard HTML elements:
 - Read API documentation in the [wiki](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/wiki)
 - Report issues on [GitHub Issues](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/issues)
 
-## Screenshots
-
-Init:
-![Example image](Markdown/imgs/Captura%20de%20tela%20de%202024-06-11%2023-56-53.png)
-
-Pressing the button 1 time:
-![Example image 2](Markdown/imgs/Captura%20de%20tela%20de%202024-06-11%2023-57-14.png)
 
 ## License
 
