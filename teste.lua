@@ -1,13 +1,12 @@
 local serjao = require("release/serjao_berranteiro/serjao_berranteiro")
 
-local function whatever_name()
+---@param rq Request
+local function main_server(rq)
 
-  return {
-    teste = {"aaa","aaa",{valor=30,valor3=34}  },
-    name="mateus",
-    age=28
-  }
+
+  return serjao.html(serjao.body(serjao.h1("Hello Word"))), 500
+  
 
 end
 
-serjao.server(3000, 5000, whatever_name)
+serjao.server(3000, 3003, main_server)
