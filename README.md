@@ -2,6 +2,12 @@
 
 ![Logo by SerjaoBerranteiroServer](Markdown/imgs/logo_olhos_manchadov2.png)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Release: v2.0](https://img.shields.io/badge/Release-v2.0-blue.svg)](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases)
+[![Language: Lua](https://img.shields.io/badge/Language-Lua-blue.svg)](https://www.lua.org/)
+[![Platform: Linux/macOS/Windows](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey.svg)](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer)
+[![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer)
+
 ## Languages
 
 [Português](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/blob/main/Markdown/language/Portugu%C3%AAsBR.md)
