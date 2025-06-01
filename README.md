@@ -1,7 +1,7 @@
 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Release: v2.0](https://img.shields.io/badge/Release-v2.0-blue.svg)](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases)
+[![Release: V6.0](https://img.shields.io/badge/Release-V6.0-blue.svg)](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases)
 [![Language: Lua](https://img.shields.io/badge/Language-Lua-blue.svg)](https://www.lua.org/)
 [![Platform: Linux/macOS/Windows](https://img.shields.io/badge/Platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey.svg)](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer)
 [![Status: Active](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer)
@@ -32,7 +32,7 @@ local serjao = require("path_to_serjao_berranteiro/serjao_berranteiro")
 In your project directory, run:
 
 ```bash
-curl -L -o serjao_berranteiro.zip https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases/download/V2/serjao_server.zip && unzip serjao_berranteiro.zip && rm serjao_berranteiro.zip 
+curl -L -o serjao_berranteiro.zip https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases/download/V6/serjao_server.zip && unzip serjao_berranteiro.zip && rm serjao_berranteiro.zip 
 ```
 ### Method 3: Build from Source
 1. Install [Darwin](https://github.com/OUIsolutions/Darwin) on version **0.3.0** or higher.
