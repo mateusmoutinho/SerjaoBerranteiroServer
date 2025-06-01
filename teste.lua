@@ -8,7 +8,7 @@ local function teste(request)
 
    if request.route == "/increment" then
         num = num +1
-   	    return serjao.send_html(h1("o valor do numero é ",tostring(num),{id="num"}))
+   	    return serjao.send_html(serjao.h1("o valor do numero é ",tostring(num),{id="num"}))
 
    end
   local html = serjao.fragment("<!DOCTYPE html>",
