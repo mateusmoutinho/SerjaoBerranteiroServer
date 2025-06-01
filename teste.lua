@@ -1,12 +1,37 @@
 local serjao = require("release/serjao_berranteiro/serjao_berranteiro")
 
----@param rq Request
-local function main_server(rq)
 
+local num = 0
 
-  return serjao.html(serjao.body(serjao.h1("Hello Word"))), 500
-  
+---@param request Request
+local function teste(request)
 
+   if request.route == "/increment" then
+        num = num +1
+   	    return serjao.send_html(h1("o valor do numero é ",tostring(num),{id="num"}))
+
+   end
+  local html = serjao.fragment("<!DOCTYPE html>",
+
+          serjao.html(
+                  serjao.head(
+                          serjao.title("Hello Word"),
+                          serjao.script({src="https://unpkg.com/htmx.org@1.9.12"})
+                  ),
+
+                  serjao.body(
+                          serjao.h1("o valor do numero é ",tostring(num),{id="num"}),
+                          "<br>",
+                          serjao.button("increment",{
+                                ["hx-trigger"]="click",
+                                ["hx-post"]="/increment",
+                                ["hx-target"]="#num",
+                                ["hx-swap"]="innerHTML"
+                          })
+                  )
+          )
+  )
+    return serjao.send_html(html.render())
 end
 
-serjao.server(3000, 3003, main_server)
+serjao.desktop("google-chrome", teste,600)

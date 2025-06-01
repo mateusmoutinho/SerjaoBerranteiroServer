@@ -348,11 +348,9 @@ local serjao = require("serjao_berranteiro/serjao_berranteiro")
 ---@param rq Request
 local function main_server(rq)
 
-  if rq.route == "/or" then
-    return html(body(h1("Hello Word"))), 500
-  end
 
-  return {name = "Samuel", from = "Brazil", age = 18}, 404
+  return serjao.html(serjao.body(serjao.h1("Hello Word"))), 500
+  
 
 end
 
@@ -420,7 +418,7 @@ local serjao = require("serjao_berranteiro/serjao_berranteiro")
 local function main_server(rq)
 
   if rq.route == "/or" then
-    local htmlOR = html(head(title("Hello")), body(h1("Hello Word")))
+    local htmlOR = serjao.html(serjao.body(serjao.h1("Hello Word")))
 
     return htmlOR
   end
@@ -713,14 +711,14 @@ To add raw code to HTML, use the "fragment()" function.
 local serjao = require("serjao_berranteiro/serjao_berranteiro")
 
 local html = serjao.fragment("<!DOCTYPE html>",
-        html(
-                head(
-                        title("Hello Word"),
-                        script()
+        serjao.html(
+                serjao.head(
+                        serjao.title("Hello Word"),
+                        serjao.script()
                 ),
-                body(
-                        h1("Hello Word"),
-                        button("Press here")
+                serjao.body(
+                        serjao.h1("Hello Word"),
+                        serjao.button("Press here")
                 )
         )
 )
@@ -745,14 +743,14 @@ local function teste(request)
   end
 
   local html = serjao.fragment("<!DOCTYPE html>",
-                  html(
-                    head(
-                          title("Hello Word"),
-                          script()
+                  serjao.html(
+                    serjao.head(
+                          serjao.title("Hello Word"),
+                          serjao.script()
                     ),
-                    body(
-                          h1("Hello Word"),
-                          button("Press here"),
+                    serjao.body(
+                          serjao.h1("Hello Word"),
+                          serjao.button("Press here"),
                           serjao.component("h2", "hello")
                     )
                   )
@@ -772,9 +770,9 @@ local serjao = require("serjao_berranteiro/serjao_berranteiro")
 local function teste()
 
         local pagina  =html(
-                body(
-                  h2({id="teste",style={color="yellow"}},"aaa"),
-                  h1({style={color="blue"}},"eai parsa")
+                serjao.body(
+                  serjao.h2({id="teste",style={color="yellow"}},"aaa"),
+                  serjao.h1({style={color="blue"}},"eai parsa")
                 ),
                 serjao.component("h4"),
                 serjao.fragment("<area>")
@@ -806,16 +804,16 @@ local function teste(request)
    end
   local html = serjao.fragment("<!DOCTYPE html>",
 
-          html(
-                  head(
-                          title("Hello Word"),
-                          script({src="https://unpkg.com/htmx.org@1.9.12"})
+          serjao.html(
+                  serjao.head(
+                          serjao.title("Hello Word"),
+                          serjao.script({src="https://unpkg.com/htmx.org@1.9.12"})
                   ),
 
-                  body(
-                          h1("o valor do numero é ",tostring(num),{id="num"}),
+                  serjao.body(
+                          serjao.h1("o valor do numero é ",tostring(num),{id="num"}),
                           "<br>",
-                          button("increment",{
+                          serjao.button("increment",{
                                 ["hx-trigger"]="click",
                                 ["hx-post"]="/increment",
                                 ["hx-target"]="#num",
