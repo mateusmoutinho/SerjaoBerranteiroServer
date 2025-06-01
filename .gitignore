@@ -2,3 +2,4 @@
 *.so
 dependencies
 release
+src/imports
