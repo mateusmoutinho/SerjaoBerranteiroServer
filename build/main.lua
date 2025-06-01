@@ -11,7 +11,6 @@ function main()
         tags = { "dependencie", "consts", "macros","ftypes", "globals", "fdeclare", "fdefine" },
         implement_main = false
     })
-    if true then return end 
   local no_dep_amalgamation = darwin.camalgamator.generate_amalgamation_with_callback("src/one.c",
         function(import, path)
             if import == "src/imports/../dependencie.dependencies.h"  then
@@ -25,10 +24,10 @@ function main()
     )
     darwin.dtw.write_file("release/serjao_no_dep.c", no_dep_amalgamation)
 
-    darwin.dtw.copy_any_overwriting("extra/starter.lua","release/luaDoTheWorld/luaDoTheWorld.lua")
-    os.execute("gcc src/one.c -Wall -shared  -fpic -o release/luaDoTheWorld/luaDoTheWorld.so")
+    darwin.dtw.copy_any_overwriting("extra/starter.lua","release/serjao_berranteiro/serjao_berranteiro.lua")
+    os.execute("gcc src/one.c -Wall -shared  -fpic -o release/serjao_berranteiro/serjao_berranteiro.so")
 
     --zip the folder 
-    os.execute("cd release && zip -r luaDoTheWorld.zip luaDoTheWorld")
-    darwin.dtw.remove_any("release/luaDoTheWorld")
+    os.execute("cd release && zip -r serjao_berranteiro.zip serjao_berranteiro")
+    darwin.dtw.remove_any("release/serjao_berranteiro")
 end
