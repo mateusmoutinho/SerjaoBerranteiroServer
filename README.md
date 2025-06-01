@@ -32,7 +32,7 @@ local serjao = require("path_to_serjao_berranteiro/serjao_berranteiro")
 In your project directory, run:
 
 ```bash
-curl -L -o serjao_berranteiro.zip https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases/download/V6/serjao_server.zip && unzip serjao_berranteiro.zip && rm serjao_berranteiro.zip 
+curl -L -o serjao_berranteiro.zip https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases/download/V6/serjao_berranteiro.zip && unzip serjao_berranteiro.zip && rm serjao_berranteiro.zip 
 ```
 ### Method 3: Build from Source
 1. Install [Darwin](https://github.com/OUIsolutions/Darwin) on version **0.3.0** or higher.
