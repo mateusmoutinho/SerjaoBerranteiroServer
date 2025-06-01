@@ -1,3 +1,3 @@
 
-#include "../depedencies/CWebStudioOne.c"
-#include "../depedencies/LuaCEmbedOne.c"
+#include "../dependencies/CWebStudioOne.c"
+#include "../dependencies/LuaCEmbedOne.c"

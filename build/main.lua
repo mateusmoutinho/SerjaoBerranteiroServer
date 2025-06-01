@@ -8,7 +8,7 @@ function main()
     darwin.silverchain.generate({
         src = "src",
         project_shortcut="serjao_berranteiro",
-        tags = { "dependencie", "consts", "macros", "globals", "fdeclare", "fdefine" },
+        tags = { "dependencie", "consts", "macros","ftypes", "globals", "fdeclare", "fdefine" },
         implement_main = false
     })
     if true then return end 
