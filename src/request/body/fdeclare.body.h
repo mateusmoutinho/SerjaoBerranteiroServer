@@ -4,7 +4,7 @@
 //silver_chain_scope_end
 
 
-LuaCEmbedTable *private_lua_fluid_parse_array(LuaCEmbed *args,
+LuaCEmbedTable *private_serjao_parse_array(LuaCEmbed *args,
                                               cJSON *json_array);
 LuaCEmbedTable *Creat_table_from_json_object(LuaCEmbed *args,
                                              cJSON *json_object);

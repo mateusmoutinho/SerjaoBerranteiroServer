@@ -108,7 +108,7 @@ CwebHttpResponse *main_sever_handle(CwebHttpRequest *request) {
 
       return response_cb;
     }
-    cJSON *parsed = lua_fluid_json_dump_table_to_cJSON(table);
+    cJSON *parsed = serjao_json_dump_table_to_cJSON(table);
     CwebHttpResponse *response =
         cweb_send_cJSON_cleaning_memory(parsed, status_code);
     return response;

@@ -14,7 +14,7 @@ bool lua_json_fluid_table_is_object(LuaCEmbedTable *table) {
   return true;
 }
 //-------------
-cJSON *lua_fluid_json_dump_to_cJSON_array(LuaCEmbedTable *table) {
+cJSON *serjao_json_dump_to_cJSON_array(LuaCEmbedTable *table) {
   long size = LuaCEmbedTable_get_full_size(table);
   cJSON *created_array = cJSON_CreateArray();
   for (int i = 0; i < size; i++) {
@@ -44,14 +44,14 @@ cJSON *lua_fluid_json_dump_to_cJSON_array(LuaCEmbedTable *table) {
 
     if (type == LUA_CEMBED_TABLE) {
       LuaCEmbedTable *internal = LuaCEmbedTable_get_sub_table_by_index(table, i);
-      cJSON *value = lua_fluid_json_dump_table_to_cJSON(internal);
+      cJSON *value = serjao_json_dump_table_to_cJSON(internal);
       cJSON_AddItemToArray(created_array, value);
     }
   }
   return created_array;
 }
 //-----------
-cJSON *lua_fluid_json_dump_to_cJSON_object(LuaCEmbedTable *table) {
+cJSON *serjao_json_dump_to_cJSON_object(LuaCEmbedTable *table) {
   long size = LuaCEmbedTable_get_full_size(table);
   cJSON *created_object = cJSON_CreateObject();
   for (int i = 0; i < size; i++) {
@@ -79,20 +79,20 @@ cJSON *lua_fluid_json_dump_to_cJSON_object(LuaCEmbedTable *table) {
 
     if (type == LUA_CEMBED_TABLE) {
       LuaCEmbedTable *internal = LuaCEmbedTable_get_sub_table_by_index(table, i);
-      cJSON *value = lua_fluid_json_dump_table_to_cJSON(internal);
+      cJSON *value = serjao_json_dump_table_to_cJSON(internal);
       cJSON_AddItemToObject(created_object, key, value);
     }
   }
   return created_object;
 }
 //------
-cJSON *lua_fluid_json_dump_table_to_cJSON(LuaCEmbedTable *table) {
+cJSON *serjao_json_dump_table_to_cJSON(LuaCEmbedTable *table) {
 
   if (lua_json_fluid_table_is_object(table)) {
 
-    return lua_fluid_json_dump_to_cJSON_object(table);
+    return serjao_json_dump_to_cJSON_object(table);
   }
-  return lua_fluid_json_dump_to_cJSON_array(table);
+  return serjao_json_dump_to_cJSON_array(table);
 }
 //-----
 LuaCEmbedResponse *send_json(LuaCEmbed *args) {
@@ -124,7 +124,7 @@ LuaCEmbedResponse *send_json(LuaCEmbed *args) {
 
     LuaCEmbedTable *value = LuaCEmbed_get_arg_table(args, 0);
 
-    result = lua_fluid_json_dump_table_to_cJSON(value);
+    result = serjao_json_dump_table_to_cJSON(value);
 
   } else {
     return LuaCEmbed_send_error("element of type %s cannot be dumped",
