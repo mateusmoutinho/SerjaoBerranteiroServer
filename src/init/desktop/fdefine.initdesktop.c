@@ -48,7 +48,7 @@ LuaCEmbedResponse *initdesktop(LuaCEmbed *arg) {
   for (int i = 3000; i <= 5000; i++) {
     pid_server = fork();
     if (pid_server == 0) {
-      struct CwebServer serverTEMP = newCwebSever(i, main_sever);
+      struct CwebServer serverTEMP = newCwebSever(i, main_sever_handle);
       serverTEMP.function_timeout = 100;
       get_params_for_server_config(&serverTEMP);
       serverTEMP.single_process = true;
