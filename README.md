@@ -34,6 +34,20 @@ In your project directory, run:
 ```bash
 curl -L -o serjao_berranteiro.zip https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer/releases/download/V2/serjao_server.zip && unzip serjao_berranteiro.zip && rm serjao_berranteiro.zip 
 ```
+### Method 3: Build from Source
+1. Install [Darwin](https://github.com/OUIsolutions/Darwin) on version **0.3.0** or higher.
+```bash
+curl -L https://github.com/OUIsolutions/Darwin/releases/download/0.3.0/darwin.out -o darwin.out && sudo chmod +x darwin.out &&  sudo  mv darwin.out /usr/bin/darwin
+```
+2. Clone the repository:
+```bash
+git clone https://github.com/SamuelHenriqueDeMoraisVitrio/SerjaoBerranteiroServer.git
+cd SerjaoBerranteiroServer
+```
+3. Build the library:
+```bash
+darwin run_blueprint --mode folder build/
+```
 
 ## Core Features
 
